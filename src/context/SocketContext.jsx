@@ -15,9 +15,7 @@ export function SocketProvider({ children }) {
         let socketInstance = null;
 
         const connectSocket = () => {
-            const socketUrl = window.location.protocol === 'https:'
-                ? `wss://${import.meta.env.VITE_SOCKET_URL}`
-                : `ws://${import.meta.env.VITE_SOCKET_URL}`;
+            const socketUrl = import.meta.env.VITE_SOCKET_URL;
             
             socketInstance = io(socketUrl, {
                 transports: ['websocket'],
